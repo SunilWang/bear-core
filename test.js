@@ -13,7 +13,8 @@ let Koa = require('./index').BearCore
 const app = new Koa({baseDir: __dirname})
 
 app.loader.service.load()
-
+let pl = app.loader.plugin.load()
+console.log(pl)
 // app.use(async (ctx) => {
 //   ctx.body = await ctx.service.test.getName()
 // })
