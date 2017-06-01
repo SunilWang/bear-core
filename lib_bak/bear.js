@@ -18,10 +18,10 @@ class Bear extends KoaApplication {
     this._options = options
     this.console = console
 
-    const loader = this[BEAR_LOADER]
-    assert(loader, 'Symbol.for(\'bear#loader\') is required')
+    const Loader = this[BEAR_LOADER]
+    assert(Loader, 'Symbol.for(\'bear#loader\') is required')
 
-    this.loader = loader({
+    this.loader = new Loader({
       baseDir: options.baseDir,
       app: this,
       plugins: options.plugins,
@@ -44,7 +44,7 @@ class Bear extends KoaApplication {
   }
 
   get [BEAR_LOADER] () {
-    return require('./loader')
+    return require('./loader/bear_loader')
   }
 }
 

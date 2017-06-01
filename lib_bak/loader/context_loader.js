@@ -8,7 +8,7 @@ class ClassLoader {
     assert(options.ctx, 'options.ctx is required')
     const properties = options.properties
     this.cache = new Map()
-    this.ctx = options.ctx
+    this.ctx = options.ctxw
 
     for (const property in properties) {
       this.defineProperty(property, properties[property])

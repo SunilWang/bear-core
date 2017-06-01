@@ -84,7 +84,7 @@ class FileLoader extends FileProcess {
         // app/service/foo/bar.js => service.foo.bar
         const pathName = directory.split(this.sep).slice(-1) + '.' + fInfo.pathName
         // get exports from the file
-        const exports = this.getExports(fullpath, this.options)
+        const exports = this.getExports(fullpath, this.options, pathName)
 
         // ignore exports when it's null or false returned by filter function
         if (exports == null || (filter && filter(exports) === false)) continue
@@ -105,3 +105,12 @@ class FileLoader extends FileProcess {
 }
 
 module.exports = FileLoader
+
+//let files = new FileLoader({directory: path.join(__dirname, '../'), target: {}})
+//
+// console.dir(files.parse())
+// console.dir(files.parse()[1])
+// console.dir(files.parse()[1].exports.prototype.pathName)
+
+// console.log('==')
+// console.log(files.load())

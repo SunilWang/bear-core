@@ -70,8 +70,13 @@ class FileProcess {
     }
   }
 
-  getExports (fullpath, {call, inject}) {
+  getExports (fullpath, {initializer, call, inject}, pathName) {
     let exports = this.loadModel(fullpath)
+
+    // process exports as you like
+    if (initializer) {
+      exports = initializer(exports, { path: fullpath, pathName })
+    }
 
     // return exports when it's a class or generator
     //
