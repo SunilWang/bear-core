@@ -26,6 +26,7 @@
     "lodash": "^4.17.4",
     "lodash.set": "^4.3.2",
     "require-directory": "^2.1.1",
+    "tingyun": "^1.5.0",
     "utility": "^1.12.0"
   }
 }
